@@ -1,5 +1,5 @@
 # VR Hand Tracking Gesture Detection Package for use with Oculus Integration for Unity
-
+#### Created by Joseph Dasilva
 This package gives developers the ability to create and track hand gestures using Oculus's hand tracking technology. Use of this package requires packages that
 come with Oculus Integration for Unity, available on the Unity Asset Store. It is required to have Version 14.0 or newer.
 
