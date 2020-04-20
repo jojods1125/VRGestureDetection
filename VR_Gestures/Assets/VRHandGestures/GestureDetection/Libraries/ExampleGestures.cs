@@ -50,7 +50,7 @@ public class ExampleGestures : GestureLibrary
     {
         GetType().GetField(var).SetValue(this, isActive);
 
-        /// EXAMPLE OF HOW TO USE SetGestureActive() AND GetGestureList()
+        /// EXAMPLE OF HOW TO USE SetGestureActive() AND GetGestureList() TO DEACTIVATE GESTURES FROM A GAMEMANAGER
         /// ASSUMES ExampleGestures IS IN THE SAME GAMEOBJECT AS HandManager
         // foreach (string g in handManager.gameObject.GetComponent<ExampleGestures>().GetGestureList())
         // {

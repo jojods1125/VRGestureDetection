@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Plugin/DemoScene/RawTest.unity
-    guid: 382eb5281a281764fb15881601c16fc7
+    path: Assets/VRHandGestures/DemoScene/DemoGame.unity
+    guid: da9a41f7c9af2794cb2526b2a08275ec
   m_configObjects: {}

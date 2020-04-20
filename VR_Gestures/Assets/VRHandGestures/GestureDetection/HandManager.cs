@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -156,7 +155,7 @@ public class HandManager : MonoBehaviour
 
 
     /// <summary>
-    /// Sets the primary and secondary hands.
+    /// Sets the PrimaryHand to "hand"'s corresponding OVRHand, and the SecondaryHand to the other type's OVRHand.
     /// <br></br> Primary is right and secondary is left by default.
     /// </summary>
     /// 
@@ -343,7 +342,7 @@ public class HandManager : MonoBehaviour
             {
                 if (emptyCount + trackedCount > libraryCount)
                 {
-                    currentGesture = "Number invalid";
+                    currentGesture = "Number of libraries invalid";
                     //Debug.LogWarning("emptyCount: " + emptyCount + "   libraryCount: " + libraryCount);
                 }
             }
@@ -407,10 +406,11 @@ public class HandManager : MonoBehaviour
 
     /// <summary>
     /// Finds the location of the secondary hand relative to the center of the player's eyesight
-    /// <br></br>Positive vector is (forward, right, up)
+    /// <br></br>Positive vector is (forward, right, above) the origin
+    /// <br></br>Negative vector is (behind, left, below) the origin
     /// </summary>
     /// 
-    /// <returns> Hand location as a vector in the format (x, y, z), with origin roughly in the center of the player's eyesight </returns>
+    /// <returns> Hand location as a vector, with origin roughly in the center of the player's eyesight </returns>
     public Vector3 SecondaryLocation()
     {
         Vector3 distance = centerEyeAnchor.transform.position - secondaryHand.transform.position;
@@ -516,7 +516,7 @@ public class HandManager : MonoBehaviour
     /// 
     /// <param name="desiredHandShape"> The desired FingerShapes, with the Thumb FingerShape at index 0 (Any indexes containing a value of 0 are skipped over) </param>
     /// 
-    /// <returns> True if the HandShape is close enough, false otherwise </returns>
+    /// <returns> True if the HandShape is exactly the same, false otherwise </returns>
     public bool PrimaryExactHandShape(Finger.FingerShape[] desiredHandShape)
     {
         if (desiredHandShape.Length != 5)
@@ -678,7 +678,7 @@ public class HandManager : MonoBehaviour
     /// <param name="fing2"> The second finger being examined </param>
     /// 
     /// <returns> True if touching, false if not </returns>
-    public Boolean PrimaryFingerTouch(Finger.FingerType fing1, Finger.FingerType fing2)
+    public bool PrimaryFingerTouch(Finger.FingerType fing1, Finger.FingerType fing2)
     {
         Vector4 fing1_bones = new Vector4();
         Vector4 fing2_bones = new Vector4();
@@ -783,7 +783,7 @@ public class HandManager : MonoBehaviour
     /// <param name="fing2"> The second finger being examined </param>
     /// 
     /// <returns> True if touching, false if not </returns>
-    public Boolean SecondaryFingerTouch(Finger.FingerType fing1, Finger.FingerType fing2)
+    public bool SecondaryFingerTouch(Finger.FingerType fing1, Finger.FingerType fing2)
     {
         Vector4 fing1_bones = new Vector4();
         Vector4 fing2_bones = new Vector4();
@@ -1131,7 +1131,7 @@ public class HandManager : MonoBehaviour
 
     /// <summary>
     /// Adds a snapshot of part of a multi-part gesture and detects if the full gesture is completed.
-    /// <br></br>Caling this as the parameter for SetCurrentGesture() will allow implementation of multi-part gestures
+    /// <br></br>Calling this as the parameter for SetCurrentGesture() will allow implementation of multi-part gestures
     /// </summary>
     /// 
     /// <param name="previousGesture"> The name of the snapshot that must be gestured before this one </param>
