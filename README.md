@@ -19,8 +19,10 @@ come with Oculus Integration for Unity, available on the Unity Asset Store. It i
 		RawTest.unity         (Testing scene)
 
 ## How to Set Up
-When creating a scene, ensure that there is an OVRCameraRig in the Hierarchy similar to the one found in DemoScene/DemoGame.unity. The OVRManager component
-should have Quest checked as the Target Device, as well as Quest Features > Hand Tracking Support set to Hands Only.**
+Download the Oculus Integration package from the Unity Asset Store. Make sure all Oculus plugins and packages are up to date!
+
+When creating a scene, ensure that there is an OVRCameraRig in the Hierarchy similar to the one found in DemoScene/DemoGame.unity. On older versions of the Oculus Integration, the OVRManager component
+should have Quest checked as the Target Device, as well as Quest Features > Hand Tracking Support set to Hands Only.** If these fields are not available on your version of OVRManager, then you should be okay with the default values.
 
 To obtain hand tracking data that is used in gesture detection, place an empty GameObject in the scene with a HandManager component. Initialize the Center Eye
 Actor, Left OVR Hand Prefab, and Right OVR Hand Prefab fields in the editor with the accordingly titled objects found within the OVRCameraRig object.
